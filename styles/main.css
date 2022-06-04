@@ -1,3 +1,43 @@
+:root {
+  --white-color: #ffffff;
+  --silver-color: #afafaf;
+  --bandsite-black-color: #323232;
+  --bandsite-dark-black-color: #000000;
+  --mercury-color: #e1e1e1;
+  --alabaster-color: #fafafa;
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Avenir Next LT Pro", sans-serif;
+}
+
+a:link,
+a:visited {
+  text-decoration: none;
+  color: inherit;
+  display: inline;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+}
+
 .header {
   background-color: var(--bandsite-black-color);
   color: var(--white-color);
@@ -28,7 +68,7 @@
 
 .hero {
   width: 100%;
-  min-height: 20rem;
+  min-height: 200px;
   background-image: url("../assets/images/hero-bio.jpg");
   background-size: cover;
   background-position: center;
@@ -131,19 +171,7 @@
   height: 2.2rem;
   margin: 0 0.8rem 0 0;
 }
-.footer__h1 {
-  padding-top: 2.4rem;
-  font-weight: 600;
-  padding-bottom: 1.6rem;
-}
 
 .contact1, .contact2, .contact3 {
   padding-bottom: 2.4rem;
-  line-height: 2.2rem;
-}
-.contact1 p:nth-child(2), .contact2 p:nth-child(2), .contact3 p:nth-child(2) {
-  padding-bottom: 1.6rem;
-}
-.contact1 p:nth-child(4), .contact2 p:nth-child(4), .contact3 p:nth-child(4) {
-  padding-bottom: 1.6rem;
 }

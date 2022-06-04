@@ -1,0 +1,26 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%; //font size set to 10px default
+}
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Avenir Next LT Pro", sans-serif;
+}
+a:link,
+a:visited {
+  text-decoration: none;
+  color: inherit;
+  display: inline;
+}
+img {
+  width: 100%;
+  height: 100%;
+}

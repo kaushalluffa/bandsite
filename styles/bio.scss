@@ -1,0 +1,156 @@
+.header {
+  background-color: var(--bandsite-black-color);
+  color: var(--white-color);
+
+  &__logo {
+    font-size: 2.4rem;
+    line-height: 3.2rem;
+    font-weight: 300;
+    padding-top: 1.6rem;
+    padding-bottom: 0.4rem;
+    display: flex;
+    justify-content: center;
+    text-transform: uppercase;
+  }
+}
+.nav__links {
+  width: 100%;
+  ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.6rem;
+    li {
+      padding: 0rem 5.6rem;
+    }
+  }
+}
+.hero {
+  width: 100%;
+  min-height: 20rem;
+  background-image: url("../assets/images/hero-bio.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  &::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: rgba($color: #000000, $alpha: 0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  &__text {
+    color: var(--white-color);
+    font-size: 3.2rem;
+    font-weight: 600;
+    position: absolute;
+    z-index: 10;
+    padding-left: 1.6rem;
+    margin-top: 9rem;
+  }
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 1.6rem;
+  color: var(--bandsite-black-color);
+  .about {
+    &__heading {
+      font-size: 2.4rem;
+      padding: 2.4rem 0 1.6rem 0;
+      color: var(--bandsite-black-color);
+      line-height: 3.2rem;
+    }
+    &__img {
+      width: 100%;
+      height: 100%;
+    }
+    &__quote,
+    &__quote-author {
+      color: var(--bandsite-dark-black-color);
+      font-weight: 600;
+      font-size: 1.4rem;
+      line-height: 2.2rem;
+    }
+    &__history--heading {
+      padding-top: 2.4rem;
+      line-height: 2.2rem;
+      font-size: 1.6rem;
+      color: var(--bandsite-dark-black-color);
+      font-weight: 400;
+    }
+    &__p {
+        font-size: 1.3rem;
+        line-height: 1.8rem;
+        font-weight: 400;
+      margin-bottom: 1.6rem;
+    }
+  }
+}
+.gallery {
+  display: flex;
+  flex-direction: column;
+
+  background-color: var(--albaster-color);
+  &__heading {
+    padding: 2.4rem 0 1.6rem 0;
+  }
+}
+.img-container {
+  &:not(:last-child) {
+    padding: 0 0 1.6rem 0;
+  }
+}
+.footer {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bandsite-black-color);
+  color: var(--white-color);
+  padding: 2.4rem 1.6rem;
+  font-size: 1.3rem;
+  line-height: 1.8rem;
+  &__heading{
+      h1{
+          font-size: 2.4rem;
+          font-weight: 600;
+      }
+      ul{
+          padding: 1.6rem 0;
+          list-style: none;
+          display: flex;
+          li{
+              width: 2.2rem;
+              height: 2.2rem;
+              margin: 0 .8rem 0 0;
+          }
+      }
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      
+  }
+  &__h1{
+      padding-top: 2.4rem;
+      font-weight: 600;
+      padding-bottom: 1.6rem;
+
+  }
+}
+.contact1,.contact2,.contact3{
+    padding-bottom: 2.4rem;
+    line-height: 2.2rem;
+    p{
+        &:nth-child(2){
+            padding-bottom: 1.6rem;
+
+        }
+        &:nth-child(4){
+            padding-bottom: 1.6rem;
+
+        }
+    }
+}
