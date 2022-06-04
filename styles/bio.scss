@@ -1,5 +1,5 @@
-@import './partials/variables';
-@import './partials/global';
+@import "./partials/variables";
+@import "./partials/global";
 .header {
   background-color: var(--bandsite-black-color);
   color: var(--white-color);
@@ -17,6 +17,7 @@
 }
 .nav__links {
   width: 100%;
+
   ul {
     list-style-type: none;
     display: flex;
@@ -29,13 +30,14 @@
 }
 .hero {
   width: 100%;
-  min-height: 20rem;
   background-image: url("../assets/images/hero-bio.jpg");
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
   position: relative;
   &::after {
     content: "";
+    display: block;
     width: 100%;
     height: 100%;
     background-color: rgba($color: #000000, $alpha: 0.5);
@@ -59,9 +61,8 @@
   flex-direction: column;
   color: var(--bandsite-black-color);
   .about {
-      padding: 0 1.6rem;
+    padding: 0 1.6rem;
     &__heading {
-        
       font-size: 2.4rem;
       padding: 2.4rem 0 1.6rem 0;
       color: var(--bandsite-black-color);
@@ -138,7 +139,8 @@
   }
   &__h1 {
     padding-top: 2.4rem;
-    font-weight: 600;
+    font-weight: 400;
+    text-transform: uppercase;
     padding-bottom: 1.6rem;
   }
 }
@@ -153,6 +155,179 @@
     }
     &:nth-child(4) {
       padding-bottom: 1.6rem;
+    }
+  }
+}
+@mixin tablet {
+  @media only screen and (min-width: 768px) {
+    @content;
+  }
+}
+// @mixin desktop {
+//   @media only screen and (min-width: 1280px) {
+//     @content;
+//   }
+// }
+@include tablet {
+  .header {
+    display: flex;
+    flex-direction: row;
+    &__logo {
+      font-size: 3.6rem;
+      line-height: 4.4rem;
+      font-weight: 400;
+      padding-top: 1.6rem;
+      padding-left: 3.6rem;
+
+      display: flex;
+      justify-content: center;
+      text-transform: uppercase;
+      margin-right: 6rem;
+    }
+  }
+  .nav__links {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    ul {
+      align-items: center;
+
+      li {
+        padding: 2.2rem 0 2.2rem 0;
+        margin-right: 5.4rem;
+      }
+    }
+  }
+  .hero {
+    width: 100%;
+    min-height: 75vh;
+
+    &__text {
+      color: var(--white-color);
+      font-size: 6rem;
+      font-weight: 600;
+      position: absolute;
+      z-index: 10;
+      padding-left: 3.6rem;
+      display: flex;
+      margin-top: 20rem;
+    }
+  }
+  .content {
+    display: flex;
+    flex-direction: column;
+    color: var(--bandsite-black-color);
+    width: 100%;
+    .about {
+      padding: 0;
+      &__description {
+        padding-left: 4.8rem;
+        padding-right: 4.8rem;
+      }
+      &__heading {
+        padding: 2.4rem 0 1.6rem 1.6rem;
+      }
+      &__img {
+        width: 90%;
+      }
+      &__quote,
+      &__quote-author {
+        font-weight: 600;
+        font-size: 2.4rem;
+        line-height: 3.2rem;
+        width: 90%;
+      }
+      &__history--heading {
+        font-size: 2.4rem;
+      }
+      &__p {
+        font-size: 1.8rem;
+        line-height: 2.2rem;
+        font-weight: 400;
+        margin-bottom: 1.6rem;
+        margin-right: 2.4rem;
+        flex: 1;
+      }
+      &__paragraphs {
+        display: flex;
+        flex-wrap: wrap;
+        width: 90%;
+      }
+    }
+  }
+  .gallery {
+    display: flex;
+    flex-direction: column;
+    padding: 0 1.6rem 1.6rem 1.6rem;
+    width: 90%;
+    &__heading {
+      font-size: 3.6rem;
+
+      padding: 2.4rem 0 1.6rem 0;
+    }
+    &__images {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+  }
+  .img-container {
+    flex: 0 1 30%;
+  }
+  .footer {
+    padding: 2.4rem 3.6rem;
+    font-size: 1.8rem;
+    line-height: 2.2rem;
+    width: 90%;
+    &__contacts {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+    &__h1 {
+      display: flex;
+      order: -1;
+      justify-content: flex-end;
+    }
+    &__heading {
+      display: flex;
+      width: 100%;
+      flex-direction: row;
+      justify-content: flex-start;
+      margin-top: -3.5rem;
+      ul {
+        margin-left: 3.6rem;
+        li {
+        width: 3rem;
+        height: 3rem;
+        margin-top: -2.5rem;
+      }
+      }
+      h1 {
+        font-weight: 600;
+
+      font-size: 3.6rem;
+      }
+    }
+    &__h1 {
+      padding-top: 2.4rem;
+      font-weight: 400;
+      padding-bottom: 1.6rem;
+    }
+  }
+  .contact1,
+  .contact2,
+  .contact3 {
+    padding-bottom: 2.4rem;
+    padding-top: 1.6rem;
+    line-height: 2.2rem;
+    p {
+      &:nth-child(2) {
+        padding-bottom: 1.6rem;
+      }
+      &:nth-child(4) {
+        padding-bottom: 1.6rem;
+      }
     }
   }
 }
