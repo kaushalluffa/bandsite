@@ -1,3 +1,44 @@
+:root {
+  --white-color: #ffffff;
+  --silver-color: #afafaf;
+  --bandsite-black-color: #323232;
+  --bandsite-dark-black-color: #000000;
+  --mercury-color: #e1e1e1;
+  --alabaster-color: #fafafa;
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Avenir Next LT Pro", sans-serif;
+  background-color: var(--white-color);
+}
+
+a:link,
+a:visited {
+  text-decoration: none;
+  color: inherit;
+  display: inline;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+}
+
 .header {
   background-color: var(--bandsite-black-color);
   color: var(--white-color);
@@ -56,9 +97,10 @@
 .content {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 0 1.6rem;
   color: var(--bandsite-black-color);
+}
+.content .about {
+  padding: 0 1.6rem;
 }
 .content .about__heading {
   font-size: 2.4rem;
@@ -94,7 +136,8 @@
 .gallery {
   display: flex;
   flex-direction: column;
-  background-color: var(--albaster-color);
+  padding: 0 1.6rem 1.6rem 1.6rem;
+  background-color: var(--mercury-color);
 }
 .gallery__heading {
   padding: 2.4rem 0 1.6rem 0;
@@ -138,13 +181,19 @@
   padding-bottom: 1.6rem;
 }
 
-.contact1, .contact2, .contact3 {
+.contact1,
+.contact2,
+.contact3 {
   padding-bottom: 2.4rem;
   line-height: 2.2rem;
 }
-.contact1 p:nth-child(2), .contact2 p:nth-child(2), .contact3 p:nth-child(2) {
+.contact1 p:nth-child(2),
+.contact2 p:nth-child(2),
+.contact3 p:nth-child(2) {
   padding-bottom: 1.6rem;
 }
-.contact1 p:nth-child(4), .contact2 p:nth-child(4), .contact3 p:nth-child(4) {
+.contact1 p:nth-child(4),
+.contact2 p:nth-child(4),
+.contact3 p:nth-child(4) {
   padding-bottom: 1.6rem;
 }
