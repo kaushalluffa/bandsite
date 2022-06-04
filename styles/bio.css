@@ -78,6 +78,7 @@
 }
 .content .about__history--heading {
   padding-top: 2.4rem;
+  padding-bottom: 1.6rem;
   line-height: 2.2rem;
   font-size: 1.6rem;
   color: var(--bandsite-dark-black-color);
