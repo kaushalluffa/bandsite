@@ -74,7 +74,7 @@ img {
   width: 100%;
   min-height: 20rem;
   background-image: url("../assets/images/hero-bio.jpg");
-  background-size: cover;
+  background-size: 100%;
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
@@ -237,6 +237,7 @@ img {
   .hero {
     width: 100%;
     min-height: 75vh;
+    background-size: 100%;
   }
   .hero__text {
     color: var(--white-color);
@@ -266,13 +267,14 @@ img {
     padding: 2.4rem 0 1.6rem 1.6rem;
   }
   .content .about__img {
-    width: 90%;
+    width: 100%;
   }
   .content .about__quote, .content .about__quote-author {
+    padding-top: 2.4rem;
     font-weight: 600;
     font-size: 2.4rem;
     line-height: 3.2rem;
-    width: 90%;
+    width: 100%;
   }
   .content .about__history--heading {
     font-size: 2.4rem;
@@ -288,14 +290,14 @@ img {
   .content .about__paragraphs {
     display: flex;
     flex-wrap: wrap;
-    width: 90%;
+    width: 100%;
   }
 
   .gallery {
     display: flex;
     flex-direction: column;
     padding: 0 1.6rem 1.6rem 1.6rem;
-    width: 90%;
+    width: 100%;
   }
   .gallery__heading {
     font-size: 3.6rem;
@@ -315,7 +317,7 @@ img {
     padding: 2.4rem 3.6rem;
     font-size: 1.8rem;
     line-height: 2.2rem;
-    width: 90%;
+    width: 100%;
   }
   .footer__contacts {
     display: flex;
