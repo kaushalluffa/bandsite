@@ -72,6 +72,7 @@ img {
 
 .hero {
   width: 100%;
+  min-height: 20rem;
   background-image: url("../assets/images/hero-bio.jpg");
   background-size: cover;
   background-position: center;
