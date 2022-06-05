@@ -11,7 +11,6 @@
     padding-top: 1.6rem;
     padding-bottom: 0.4rem;
     display: flex;
-    justify-content: center;
     text-transform: uppercase;
   }
 }
@@ -164,11 +163,12 @@
     @content;
   }
 }
-// @mixin desktop {
-//   @media only screen and (min-width: 1280px) {
-//     @content;
-//   }
-// }
+@mixin desktop {
+  @media only screen and (min-width: 1280px) {
+    @content;
+  }
+}
+
 @include tablet {
   .header {
     display: flex;
@@ -234,7 +234,7 @@
       }
       &__quote,
       &__quote-author {
-          padding-top: 2.4rem;
+        padding-top: 2.4rem;
         font-weight: 600;
         font-size: 2.4rem;
         line-height: 3.2rem;
@@ -301,15 +301,15 @@
       ul {
         margin-left: 3.6rem;
         li {
-        width: 3rem;
-        height: 3rem;
-        margin-top: -2.5rem;
-      }
+          width: 3rem;
+          height: 3rem;
+          margin-top: -2.5rem;
+        }
       }
       h1 {
         font-weight: 600;
 
-      font-size: 3.6rem;
+        font-size: 3.6rem;
       }
     }
     &__h1 {
@@ -332,5 +332,37 @@
         padding-bottom: 1.6rem;
       }
     }
+  }
+}
+@include desktop {
+  .nav__links {
+    padding-left: 8rem;
+  }
+  .hero {
+    &__text {
+      padding-left: 8rem;
+    }
+  }
+  .content{
+
+      .about {
+          &__description{
+              
+              padding-left: 16rem;
+              padding-right: 16rem;
+            }
+            &__heading{
+                font-size: 4rem;
+                padding-left: 10rem;
+            }
+        }
+    }
+  .gallery {
+    padding-right: 12rem;
+    padding-left: 12rem;
+  }
+  .footer {
+    padding-left: 14rem;
+    padding-right: 14rem;
   }
 }
