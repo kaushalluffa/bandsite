@@ -1,4 +1,12 @@
 
+:root {
+  --white-color: #ffffff;
+  --silver-color: #afafaf;
+  --bandsite-black-color: #323232;
+  --bandsite-dark-black-color: #000000;
+  --mercury-color: #e1e1e1;
+  --alabaster-color: #fafafa;
+}
 *,
 *::after,
 *::before {
@@ -24,9 +32,18 @@ a:link,
 a:visited {
   text-decoration: none;
   color: inherit;
-  display: inline;
 }
 img {
   width: 100%;
   height: 100%;
+}
+@mixin tablet {
+  @media only screen and (min-width: 768px) {
+    @content;
+  }
+}
+@mixin desktop {
+  @media only screen and (min-width: 1280px) {
+    @content;
+  }
 }
