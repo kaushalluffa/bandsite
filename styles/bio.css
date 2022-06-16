@@ -7,6 +7,24 @@
   --alabaster-color: #fafafa;
 }
 
+@font-face {
+  font-family: "Avenir";
+  src: url("../../assets/fonts/Avenir-Next-LT-Pro-R.otf");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Avenir";
+  src: url("../../assets/fonts/AvenirNextLTProD.otf");
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Avenir";
+  src: url("../../assets/fonts/AvenirNextLTProB.otf");
+  font-weight: 700;
+  font-style: normal;
+}
 *,
 *::after,
 *::before {
@@ -26,7 +44,7 @@ body {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: "Avenir Next LT Pro", sans-serif;
+  font-family: "Avenir";
   background-color: var(--white-color);
 }
 
