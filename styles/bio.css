@@ -59,6 +59,20 @@ img {
   height: 100%;
 }
 
+button {
+  background-color: var(--bandsite-black-color);
+  outline: none;
+  color: var(--white-color);
+  border: none;
+  height: 4rem;
+  padding: 0 3.6rem;
+  border-radius: 0.4rem;
+  transition: all 0.3s;
+}
+button:hover {
+  background-color: var(--bandsite-dark-black-color);
+}
+
 .header {
   background-color: var(--bandsite-black-color);
   color: var(--white-color);
@@ -172,6 +186,65 @@ img {
   margin-top: 1.6rem;
 }
 
+.home__comments {
+  display: flex;
+  flex-direction: column;
+  padding: 2.4rem 1.6rem;
+}
+.home__comments h1 {
+  font-size: 2.4rem;
+  line-height: 2.2rem;
+  font-weight: 600;
+  margin-bottom: 1.6rem;
+}
+.home__comments--form {
+  width: 100%;
+  display: flex;
+}
+.home__comments--form-dp {
+  width: 3.6rem;
+  height: 3.6rem;
+  margin-top: 1.6rem;
+  margin-right: 1.6rem;
+  border-radius: 50%;
+  display: inline-block;
+}
+.home__comments--form-dp img {
+  border-radius: 50%;
+  vertical-align: middle;
+}
+.home__comments--form form {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+.home__comments--form form label {
+  font-weight: 600;
+  color: var(--mercury-color);
+  margin-bottom: 0.4rem;
+}
+.home__comments--form form input {
+  height: 3.6rem;
+}
+.home__comments--form form textarea {
+  height: 10.8rem;
+}
+.home__comments--form form .form-field {
+  width: 100%;
+  border-radius: 0.4rem;
+  padding: 1.2rem;
+  outline: none;
+  border: 1px solid var(--mercury-color);
+  font-family: inherit;
+  background-color: var(--alabaster-color);
+  margin-bottom: 1.6rem;
+}
+.home__comments--form form .form-field:active, .home__comments--form form .form-field:focus {
+  border: 1px solid var(--bandsite-black-color);
+}
+.home__comments--form form .form-field::placeholder {
+  color: var(--bandsite-black-color);
+}
 .footer {
   display: flex;
   flex-direction: column;
