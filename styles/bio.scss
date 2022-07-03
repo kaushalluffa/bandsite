@@ -1,5 +1,7 @@
 @import 'partials/global';
 
+//header----------------------------------------------------------
+
 .header {
   background-color: var(--bandsite-black-color);
   color: var(--white-color);
@@ -23,11 +25,14 @@
     display: flex;
     justify-content: space-between;
     font-size: 1.6rem;
+    
     li {
       padding: 0rem 5.6rem 0.8rem 5.6rem;
+      
     }
   }
 }
+//hero----------------------------------------------------------
 .hero {
   width: 100%;
   min-height: 75vh;
@@ -60,6 +65,7 @@
     transform: translateY(-50%);
   }
 }
+//content----------------------------------------------------------
 .content {
   display: flex;
   flex-direction: column;
@@ -100,6 +106,7 @@
     }
   }
 }
+//gallery----------------------------------------------------------
 .gallery {
   display: flex;
   flex-direction: column;
@@ -116,6 +123,13 @@
   //   padding: 0 0 1.6rem 0;
   // }
 }
+//comments----------------------------------------------------------
+
+
+
+
+
+//footer----------------------------------------------------------
 .footer {
   display: flex;
   flex-direction: column;
@@ -139,6 +153,7 @@
         margin: 0 0.8rem 0 0;
       }
     }
+
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -164,6 +179,15 @@
     }
   }
 }
+
+
+
+
+
+
+
+
+
 
 @include tablet {
   .header {
@@ -328,7 +352,6 @@
 @include desktop {
   .nav__links {
     padding-left: 8rem;
-   
   }
   .hero {
     &__text {
