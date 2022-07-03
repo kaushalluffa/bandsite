@@ -124,11 +124,12 @@
 }
 //comments----------------------------------------------------------
 
+// form-------------------------------------------------------------
 .home__comments {
   display: flex;
   flex-direction: column;
   // align-items: center;
-  padding: 2.4rem 1.6rem;
+  padding: 1.6rem;
   h1 {
     font-size: 2.4rem;
     line-height: 2.2rem;
@@ -144,12 +145,8 @@
       margin-top: 1.6rem;
       margin-right: 1.6rem;
       border-radius: 50%;
-      display: inline-block;
-
-      img {
-        border-radius: 50%;
-        vertical-align: middle;
-      }
+      background-image: url("../assets/images/Mohan-muruge.jpg");
+      background-size: cover;
     }
 
     form {
@@ -159,7 +156,7 @@
       label {
         font-weight: 600;
         color: var(--mercury-color);
-        margin-bottom: .4rem;
+        margin-bottom: 0.4rem;
       }
       flex-direction: column;
       input {
@@ -175,7 +172,7 @@
         outline: none;
         border: 1px solid var(--mercury-color);
         font-family: inherit;
-        background-color: var( --alabaster-color);
+        background-color: var(--alabaster-color);
         margin-bottom: 1.6rem;
         &:active,
         &:focus {
@@ -187,7 +184,38 @@
       }
     }
   }
+  // comment list------------------------------------------------
   &--list {
+    margin-top: 1.6rem;
+    .comment {
+      border-top: 1px solid var(--mercury-color);
+      padding: 1.6rem 0;
+      display: flex;
+      width: 100%;
+      &:last-child {
+        border-bottom: 1px solid var(--mercury-color);
+      }
+
+      &__profile-pic {
+        width: 3.6rem;
+        height: 3.6rem;
+        margin-right: 1.6rem;
+        background-color: var(--mercury-color);
+        border-radius: 50%;
+      }
+      &__text {
+        width: 80%;
+        &--title {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 0.8rem;
+          p {
+            color: var(--mercury-color);
+          }
+        }
+      }
+    }
   }
 }
 
