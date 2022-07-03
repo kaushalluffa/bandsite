@@ -264,11 +264,19 @@ button:hover {
 .home__comments--list .comment__text {
   width: 80%;
 }
+.home__comments--list .comment__text p {
+  font-size: 1.3rem;
+  line-height: 1.8rem;
+  font-weight: 400;
+}
 .home__comments--list .comment__text--title {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 0.8rem;
+}
+.home__comments--list .comment__text--title h3 {
+  font-weight: 600;
 }
 .home__comments--list .comment__text--title p {
   color: var(--mercury-color);
