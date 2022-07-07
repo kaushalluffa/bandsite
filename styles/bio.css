@@ -64,12 +64,24 @@ button {
   color: var(--white-color);
   border: none;
   height: 4rem;
-  padding: 0 3.6rem;
+  padding: 0 3.2rem;
   border-radius: 0.4rem;
   transition: all 0.3s;
 }
 button:hover {
   background-color: var(--bandsite-dark-black-color);
+}
+
+.title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--mercury-color);
+  margin-bottom: 1.6rem;
+}
+
+p {
+  font-size: 1.4rem;
+  font-weight: 400;
 }
 
 .header {

@@ -71,7 +71,7 @@ button{
   color: var(--white-color);
   border: none;
   height: 4rem;
-  padding: 0 3.6rem;
+  padding: 0 3.2rem;
   border-radius: .4rem;
   transition: all .3s;
   &:hover{
@@ -79,3 +79,13 @@ button{
   }
 }
 
+.title{
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--mercury-color);
+  margin-bottom: 1.6rem;
+}
+p{
+  font-size: 1.4rem;
+  font-weight: 400;
+}
