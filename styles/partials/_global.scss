@@ -73,6 +73,7 @@ button{
   height: 4rem;
   padding: 0 3.2rem;
   border-radius: .4rem;
+  cursor: pointer;
   transition: all .3s;
   &:hover{
     background-color: var(--bandsite-dark-black-color);

@@ -66,6 +66,7 @@ button {
   height: 4rem;
   padding: 0 3.2rem;
   border-radius: 0.4rem;
+  cursor: pointer;
   transition: all 0.3s;
 }
 button:hover {
