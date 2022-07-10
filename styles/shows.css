@@ -360,6 +360,7 @@ p {
   }
   .shows__show-tab {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
   }
   .shows__show-tab table {

@@ -279,6 +279,7 @@
 
       &-tab {
         display: flex;
+        flex-direction: column;
         justify-content: space-between;
         table {
           width: 100%;

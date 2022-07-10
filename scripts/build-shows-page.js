@@ -1,9 +1,20 @@
+// bottom border styling for navigation
 const navLinks = document.getElementById("navLinks");
 if (window.document.title === "Bandsite - Shows") {
   navLinks.lastChild.previousSibling.classList.add("active");
 } else {
   navLinks.lastChild.previousSibling.classList.remove("active");
 }
+
+//selecting DOM elements
+
+const showsMob = document.querySelector(".shows__list");
+const showsTab = document.querySelector(".table__info");
+
+
+
+//shows array
+
 
 const shows = [
   {
@@ -12,36 +23,35 @@ const shows = [
     showLocation: "San Francisco, CA",
   },
   {
-    date: "Mon Sept 06 2022",
-    venue: "Ronald Lane",
+    date: "Tue Sept 21 2022",
+    venue: "Pier 3 East",
     showLocation: "San Francisco, CA",
   },
   {
-    date: "Mon Sept 06 2022",
-    venue: "Ronald Lane",
+    date: "Fri Oct 15 2022",
+    venue: "View Lounge",
     showLocation: "San Francisco, CA",
   },
   {
-    date: "Mon Sept 06 2022",
-    venue: "Ronald Lane",
+    date: "Sat Nov 06 2022",
+    venue: "Hyatt Agency",
     showLocation: "San Francisco, CA",
   },
   {
-    date: "Mon Sept 06 2022",
-    venue: "Ronald Lane",
+    date: "Fri Nov 26 2022",
+    venue: "Moscow Center",
     showLocation: "San Francisco, CA",
   },
   {
-    date: "Mon Sept 06 2022",
-    venue: "Ronald Lane",
+    date: "Wed Dec 15 2022",
+    venue: "Press Club",
     showLocation: "San Francisco, CA",
   },
 ];
 
-const showsMob = document.querySelector(".shows__list");
-const showsTab = document.querySelector(".info");
 
-//showing comment on the page function
+
+//showing shows on the mobile view function
 function showList(arr) {
   let newShow = "";
   for (let i = 0; i < arr.length; i++) {
@@ -56,9 +66,13 @@ function showList(arr) {
       "</p></div><div class='location'><p>LOCATION</p><p>" +
       showLocation +
       "</p></div><button><a href='#'>BUY TICKETS</a></button></div>";
+     
   }
   return newShow;
 }
+
+// showing shows on tablet and desktop views function
+
 function showListTab(arr) {
   let newShowTab = "";
   for (let i = 0; i < arr.length; i++) {
@@ -73,9 +87,15 @@ function showListTab(arr) {
       "</td><td>" +
       showLocation +
       "</td><td><button><a href='#'>BUY TICKETS</a></button></td></tr>";
+      
   }
   return newShowTab;
 }
+
+
+
+
+
 //appending comments on the page from the array
 showsMob.innerHTML = showList(shows);
-showsTab.innerHTML = showListTab(shows);
+showsTab.innerHTML = showListTab(shows)
