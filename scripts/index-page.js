@@ -19,6 +19,7 @@ const comments = [
       "I can't stop listening. Every time I hear one of their songs - the vocals - it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough.",
   },
 ];
+
 //selecting dom elements
 const commentElement = document.querySelector(".home__comments--list");
 
@@ -27,14 +28,13 @@ const commentBtn = document.getElementById("index__comment");
 //adding event listener to comment button
 commentBtn.addEventListener("click", addComment);
 
-
 //showing comment on the page function
 function showComments(arr) {
   let newComment = "";
   for (let i = 0; i < arr.length; i++) {
-    name = comments[i].name;
-    date = comments[i].date;
-    comment = comments[i].comment;
+    name = arr[i].name;
+    date = arr[i].date;
+    comment = arr[i].comment;
     newComment +=
       "<div class='comment'><div class='comment__profile-pic'></div><div class='comment__text'><div class='comment__text--title'><h3>" +
       name +
@@ -74,3 +74,62 @@ function addComment(e) {
     inputComment.value = "";
   }
 }
+
+// bottom border styling for navigation
+
+const navLinks = document.getElementById("navLinks");
+if (window.document.title === "Bandsite - Biography") {
+  navLinks.firstChild.nextSibling.classList.add("active");
+} else {
+  navLinks.firstChild.nextSibling.classList.remove("active");
+}
+
+//Extra stuff not in the requirements of the project by Brainstation
+
+// images array
+
+const images = [
+  {
+    imgUrl: "../assets/images/Photo-gallery-1.jpg",
+  },
+  {
+    imgUrl: "../assets/images/Photo-gallery-2.jpg",
+  },
+  {
+    imgUrl: "../assets/images/Photo-gallery-3.jpg",
+  },
+  {
+    imgUrl: "../assets/images/Photo-gallery-4.jpg",
+  },
+  {
+    imgUrl: "../assets/images/Photo-gallery-5.jpg",
+  },
+  {
+    imgUrl: "../assets/images/Photo-gallery-6.jpg",
+  },
+  {
+    imgUrl: "../assets/images/Photo-gallery-7.jpg",
+  },
+  {
+    imgUrl: "../assets/images/Photo-gallery-8.jpg",
+  },
+  {
+    imgUrl: "../assets/images/Photo-gallery-9.jpg",
+  },
+];
+
+//selecting the element
+const img = document.querySelector(".gallery__images");
+
+// show image function
+function showImages(arr) {
+  let newImage = "";
+  for (let i = 0; i < arr.length; i++) {
+    imgUrl = arr[i].imgUrl;
+    newImage += `<div class='img-container'><img src="${imgUrl}" alt='gallery image'/></div>`;
+  }
+  return newImage;
+}
+
+// adding images to DOM
+img.innerHTML = showImages(images);

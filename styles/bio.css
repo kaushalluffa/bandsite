@@ -85,6 +85,10 @@ p {
   font-weight: 400;
 }
 
+.active {
+  border-bottom: 0.4rem solid white;
+}
+
 .header {
   background-color: var(--bandsite-black-color);
   color: var(--white-color);
@@ -115,12 +119,15 @@ p {
 
 .hero {
   width: 100%;
-  min-height: 75vh;
+  min-height: 50vh;
   background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("../assets/images/hero-bio.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .hero::after {
   content: "";
@@ -136,12 +143,8 @@ p {
   color: var(--white-color);
   font-size: 3.2rem;
   font-weight: 600;
-  position: absolute;
   z-index: 10;
   padding-left: 1.6rem;
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
 }
 
 .content {

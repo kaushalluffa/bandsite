@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BandSite - Shows</title>
+    <title>Bandsite - Shows</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
@@ -18,11 +18,11 @@
     <header class="header">
       <nav class="nav__links">
         <h1 class="header__logo"><a href="./index.html">Bandsite</a></h1>
-        <ul>
-          <li style="border-bottom: 0.4rem solid white">
+        <ul id="navLinks">
+          <li>
             <a href="../index.html" style="font-weight: 500">Biography</a>
           </li>
-          <li><a href="./pages/shows.html">Shows</a></li>
+          <li><a href="./shows.html">Shows</a></li>
         </ul>
       </nav>
     </header>
@@ -42,7 +42,7 @@
       <div class="shows">
         <h1>Shows</h1>
         <div class="shows__list">
-          <div class="shows__show">
+          <!-- <div class="shows__show">
             <div class="date">
               <p>DATE</p>
               <p>Mon Sept 06 2022</p>
@@ -131,7 +131,7 @@
               <p>San Francisco, CA</p>
             </div>
             <button><a href="#">BUY TICKETS</a></button>
-          </div>
+          </div> -->
         </div>
         <div class="shows__show-tab">
           <table>
@@ -141,42 +141,44 @@
               <th>LOCATION</th>
               <th></th>
             </tr>
-            <tr>
-              <td>Mon Sept 06 202</td>
-              <td>Ronald Lane</td>
-              <td>San Francisco, CA</td>
-              <td><button>BUY TICKETS</button></td>
-            </tr>
-            <tr>
-              <td>Tue Sept 21 2022</td>
-              <td>Pier 3 East</td>
-              <td>San Francisco, CA</td>
-              <td><button>BUY TICKETS</button></td>
-            </tr>
-            <tr>
-              <td>Fri Oct 15 2022</td>
-              <td>View Lounge</td>
-              <td>San Francisco, CA</td>
-              <td><button>BUY TICKETS</button></td>
-            </tr>
-            <tr>
-              <td>Sat Nove 06 2022</td>
-              <td>Hyatt Agency</td>
-              <td>San Francisco, CA</td>
-              <td><button>BUY TICKETS</button></td>
-            </tr>
-            <tr>
-              <td>Fri Nov 26 2022</td>
-              <td>Moscow Center</td>
-              <td>San Francisco, CA</td>
-              <td><button>BUY TICKETS</button></td>
-            </tr>
-            <tr>
-              <td>Wed Dec 15 2022</td>
-              <td>Press Club</td>
-              <td>San Francisco, CA</td>
-              <td><button>BUY TICKETS</button></td>
-            </tr>
+            <div class="info">
+              <!-- <tr>
+                <td>Mon Sept 06 202</td>
+                <td>Ronald Lane</td>
+                <td>San Francisco, CA</td>
+                <td><button>BUY TICKETS</button></td>
+              </tr>
+              <tr>
+                <td>Tue Sept 21 2022</td>
+                <td>Pier 3 East</td>
+                <td>San Francisco, CA</td>
+                <td><button>BUY TICKETS</button></td>
+              </tr>
+              <tr>
+                <td>Fri Oct 15 2022</td>
+                <td>View Lounge</td>
+                <td>San Francisco, CA</td>
+                <td><button>BUY TICKETS</button></td>
+              </tr>
+              <tr>
+                <td>Sat Nove 06 2022</td>
+                <td>Hyatt Agency</td>
+                <td>San Francisco, CA</td>
+                <td><button>BUY TICKETS</button></td>
+              </tr>
+              <tr>
+                <td>Fri Nov 26 2022</td>
+                <td>Moscow Center</td>
+                <td>San Francisco, CA</td>
+                <td><button>BUY TICKETS</button></td>
+              </tr>
+              <tr>
+                <td>Wed Dec 15 2022</td>
+                <td>Press Club</td>
+                <td>San Francisco, CA</td>
+                <td><button>BUY TICKETS</button></td>
+              </tr> -->
+            </div>
           </table>
         </div>
       </div>
@@ -239,5 +241,6 @@
         Copyright The Bees Knees &copy; 2021 All Rights Reserved
       </p>
     </footer>
+    <script src="../scripts/build-shows-page.js"></script>
   </body>
 </html>

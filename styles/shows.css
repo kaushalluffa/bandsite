@@ -85,6 +85,10 @@ p {
   font-weight: 400;
 }
 
+.active {
+  border-bottom: 0.4rem solid white;
+}
+
 .header {
   background-color: var(--bandsite-black-color);
   color: var(--white-color);
