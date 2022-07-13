@@ -90,31 +90,31 @@ if (window.document.title === "Bandsite - Biography") {
 
 const images = [
   {
-    imgUrl: "../assets/images/Photo-gallery-1.jpg",
+    imgUrl: "https://photos.app.goo.gl/bBTSrimtnNiERXtU8",
   },
   {
-    imgUrl: "../assets/images/Photo-gallery-2.jpg",
+    imgUrl: "https://photos.app.goo.gl/eCKbmaAAKzzYZxWw9",
   },
   {
-    imgUrl: "../assets/images/Photo-gallery-3.jpg",
+    imgUrl: "https://photos.app.goo.gl/FeT6uyntM9Dc2qQr7",
   },
   {
-    imgUrl: "../assets/images/Photo-gallery-4.jpg",
+    imgUrl: "https://photos.app.goo.gl/CNRMdrTGkeiDAA5HA",
   },
   {
-    imgUrl: "../assets/images/Photo-gallery-5.jpg",
+    imgUrl: "https://photos.app.goo.gl/FNnA9MiRRvSrsJhR9",
   },
   {
-    imgUrl: "../assets/images/Photo-gallery-6.jpg",
+    imgUrl: "https://photos.app.goo.gl/g8epph23Y5i9UKcZA",
   },
   {
-    imgUrl: "../assets/images/Photo-gallery-7.jpg",
+    imgUrl: "https://photos.app.goo.gl/74uURfqma6HmDtAr9",
   },
   {
-    imgUrl: "../assets/images/Photo-gallery-8.jpg",
+    imgUrl: "https://photos.app.goo.gl/kWPoAU4pwzx4RtUb7",
   },
   {
-    imgUrl: "../assets/images/Photo-gallery-9.jpg",
+    imgUrl: "https://photos.app.goo.gl/vekqs312gDZ6t6oK7",
   },
 ];
 
