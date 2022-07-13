@@ -1,40 +1,8 @@
 
-:root {
-  --white-color: #ffffff;
-  --silver-color: #afafaf;
-  --bandsite-black-color: #323232;
-  --bandsite-dark-black-color: #000000;
-  --mercury-color: #e1e1e1;
-  --alabaster-color: #fafafa;
-}
-@font-face {
-  font-family: 'Avenir';
-  src: url('../../assets/fonts/Avenir-Next-LT-Pro-R.otf');
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Avenir';
-  src: url('../../assets/fonts/AvenirNextLTProD.otf');
-  font-weight: 600;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Avenir';
-  src: url('../../assets/fonts/AvenirNextLTProB.otf');
-  font-weight: 700;
-  font-style: normal;
-}
-@mixin tablet {
-  @media only screen and (min-width: 768px) {
-    @content;
-  }
-}
-@mixin desktop {
-  @media only screen and (min-width: 1280px) {
-    @content;
-  }
-}
+@use './variables' as *;
+@use './mixins' as *;
+
+
 *,
 *::after,
 *::before {
@@ -52,7 +20,7 @@ html {
 }
 body {
   font-family: "Avenir";
-  background-color: var(--white-color);
+  background-color: $white-color;
   overflow-x: hidden;
 }
 a:link,
@@ -66,9 +34,9 @@ img {
   height: 100%;
 }
 button{
-  background-color: var(--bandsite-black-color);
+  background-color: $bandsite-black-color;
   outline: none;
-  color: var(--white-color);
+  color: $white-color;
   border: none;
   height: 4rem;
   padding: 0 3.2rem;
@@ -76,14 +44,14 @@ button{
   cursor: pointer;
   transition: all .3s;
   &:hover{
-    background-color: var(--bandsite-dark-black-color);
+    background-color: $bandsite-dark-black-color;
   }
 }
 
 .title{
   font-size: 1.4rem;
   font-weight: 600;
-  color: var(--mercury-color);
+  color: $mercury-color;
   margin-bottom: 1.6rem;
 }
 p{
@@ -93,3 +61,167 @@ p{
 .active{
   border-bottom: 0.4rem solid white;
 }
+.table__info{
+  tr{
+    &:hover{
+      background-color: $alabaster-color;
+    }
+  }
+}
+//header----------------------------------------------------------
+
+.header {
+  background-color: $bandsite-black-color;
+  color: $white-color;
+@include tablet{
+  display: flex;
+    flex-direction: row;
+}
+  &__logo {
+    font-size: 2.4rem;
+    line-height: 3.2rem;
+    font-weight: 300;
+    padding-top: 1.6rem;
+    padding-bottom: 0.4rem;
+    display: flex;
+    justify-content: center;
+    text-transform: uppercase;
+    @include tablet{
+  font-size: 3.6rem;
+      line-height: 4.4rem;
+      font-weight: 400;
+      padding-top: 1.6rem;
+      padding-left: 3.6rem;
+
+      display: flex;
+      justify-content: center;
+      text-transform: uppercase;
+      margin-right: 6rem;
+}
+  }
+}
+.nav__links {
+  width: 100%;
+  @include tablet{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  @include desktop{
+    padding-left: 8rem;
+  }
+
+  ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.6rem;
+    @include tablet{
+     align-items: center;
+  }
+
+    li {
+      padding: 0rem 5.6rem 0.8rem 5.6rem;
+       @include tablet{
+     padding: 2.2rem 0 1.4rem 0;
+        margin-right: 5.4rem;
+  }
+    }
+  }
+}
+//footer----------------------------------------------------------
+.footer {
+  display: flex;
+  flex-direction: column;
+  background-color: $bandsite-black-color;
+  color: $white-color;
+  padding: 2.4rem 1.6rem;
+  font-size: 1.3rem;
+  line-height: 1.8rem;
+  @include tablet{
+    padding: 2.4rem 3.6rem;
+    font-size: 1.8rem;
+    line-height: 2.2rem;
+    width: 100%;
+      &__contacts {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+  @include desktop{
+     padding-left: 14rem;
+    padding-right: 14rem;
+  }
+  &__heading {
+    @include tablet{
+      display: flex;
+      width: 100%;
+      flex-direction: row;
+      justify-content: flex-start;
+      margin-top: -3.5rem;
+    }
+    h1 {
+      font-size: 2.4rem;
+      font-weight: 600;
+      @include tablet{
+        font-weight: 600;
+        font-size: 3.6rem;
+      }
+    }
+    ul {
+      padding: 1.6rem 0;
+      list-style: none;
+      display: flex;
+      @include tablet{
+        margin-left: 3.6rem;
+      }
+      li {
+        width: 2.2rem;
+        height: 2.2rem;
+        margin: 0 0.8rem 0 0;
+        @include tablet{
+          width: 3rem;
+          height: 3rem;
+          margin-top: -2.5rem;
+        }
+      }
+    }
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  &__h1 {
+    padding-top: 2.4rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    padding-bottom: 1.6rem;
+    @include tablet{
+       display: flex;
+      order: -1;
+      justify-content: flex-end;
+      padding-top: 2.4rem;
+      font-weight: 400;
+      padding-bottom: 1.6rem;
+    }
+  }
+}
+.contact {
+  padding-bottom: 2.4rem;
+  line-height: 2.2rem;
+  @include tablet{
+    padding-bottom: 2.4rem;
+    padding-top: 1.6rem;
+    line-height: 2.2rem;
+  }
+  p {
+    &:nth-child(2) {
+      padding-bottom: 1.6rem;
+    }
+    &:nth-child(4) {
+      padding-bottom: 1.6rem;
+    }
+  }
+}
+

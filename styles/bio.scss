@@ -1,36 +1,7 @@
-@import "partials/global";
+@use "./partials/variables" as *;
+@use "partials/global" as *;
+@use "./partials/mixins" as *;
 
-//header----------------------------------------------------------
-
-.header {
-  background-color: var(--bandsite-black-color);
-  color: var(--white-color);
-
-  &__logo {
-    font-size: 2.4rem;
-    line-height: 3.2rem;
-    font-weight: 300;
-    padding-top: 1.6rem;
-    padding-bottom: 0.4rem;
-    display: flex;
-    justify-content: center;
-    text-transform: uppercase;
-  }
-}
-.nav__links {
-  width: 100%;
-
-  ul {
-    list-style-type: none;
-    display: flex;
-    justify-content: space-between;
-    font-size: 1.6rem;
-
-    li {
-      padding: 0rem 5.6rem 0.8rem 5.6rem;
-    }
-  }
-}
 //hero----------------------------------------------------------
 .hero {
   width: 100%;
@@ -56,55 +27,116 @@
   }
 
   &__text {
-    color: var(--white-color);
+    color: $white-color;
     font-size: 3.2rem;
     font-weight: 600;
-    // position: absolute;
+
     z-index: 10;
     padding-left: 1.6rem;
-    // top: 50%;
-    // left: 0;
-    // transform: translateY(-50%);
+    @include tablet {
+      color: $white-color;
+      font-size: 6rem;
+      font-weight: 600;
+      position: absolute;
+      z-index: 10;
+      padding-left: 3.2rem;
+    }
+    @include desktop {
+      padding-left: 12rem;
+    }
   }
 }
 //content----------------------------------------------------------
 .content {
   display: flex;
   flex-direction: column;
-  color: var(--bandsite-black-color);
+  color: $bandsite-black-color;
+  @include tablet {
+    display: flex;
+    flex-direction: column;
+    color: $bandsite-black-color;
+    width: 100%;
+  }
   .about {
     padding: 0 1.6rem;
+    @include tablet {
+      padding: 0;
+      &__description {
+        padding-left: 8rem;
+        padding-right: 8rem;
+      }
+      &__paragraphs {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+      }
+    }
+    @include desktop {
+      &__description {
+        padding-left: 16rem;
+        padding-right: 16rem;
+      }
+      &__heading {
+        font-size: 4rem;
+        padding-left: 10rem;
+      }
+    }
     &__heading {
       font-size: 2.4rem;
       font-weight: 500;
       padding: 2.4rem 0 1.6rem 0;
-      color: var(--bandsite-black-color);
+      color: $bandsite-black-color;
       line-height: 3.2rem;
+      @include tablet {
+        font-size: 3.2rem;
+        padding: 2.4rem 0 1.6rem 3.2rem;
+      }
     }
     &__img {
       width: 100%;
       height: 100%;
+      @include tablet {
+        width: 100%;
+      }
     }
     &__quote,
     &__quote-author {
-      color: var(--bandsite-dark-black-color);
+      color: $bandsite-dark-black-color;
       font-weight: 600;
       font-size: 1.4rem;
       line-height: 2.2rem;
+      @include tablet {
+        padding-top: 2.4rem;
+        font-weight: 600;
+        font-size: 2.4rem;
+        line-height: 3.2rem;
+        width: 100%;
+      }
     }
     &__history--heading {
       padding-top: 2.4rem;
       padding-bottom: 1.6rem;
       line-height: 2.2rem;
       font-size: 1.6rem;
-      color: var(--bandsite-dark-black-color);
+      color: $bandsite-dark-black-color;
       font-weight: 400;
+      @include tablet {
+        font-size: 2.4rem;
+      }
     }
     &__p {
       font-size: 1.3rem;
       line-height: 1.8rem;
       font-weight: 400;
       margin-bottom: 1.6rem;
+      @include tablet {
+        font-size: 1.8rem;
+        line-height: 2.2rem;
+        font-weight: 400;
+        margin-bottom: 1.6rem;
+        margin-right: 2.4rem;
+        flex: 1;
+      }
     }
   }
 }
@@ -113,17 +145,35 @@
   display: flex;
   flex-direction: column;
   padding: 0 1.6rem 1.6rem 1.6rem;
-
-  background-color: var(--mercury-color);
+  background-color: $mercury-color;
+  @include tablet {
+    display: flex;
+    flex-direction: column;
+    padding: 0 1.6rem 1.6rem 1.6rem;
+    width: 100%;
+    &__images {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+  }
+  @include desktop {
+    padding-right: 12rem;
+    padding-left: 12rem;
+  }
   &__heading {
     padding: 2.4rem 0 1.6rem 0;
+    @include tablet {
+      font-size: 3.6rem;
+      padding: 2.4rem 0 1.6rem 0;
+    }
   }
 }
 .img-container {
   margin-top: 1.6rem;
-  // &:not(:last-child) {
-  //   padding: 0 0 1.6rem 0;
-  // }
+  @include tablet {
+    flex: 0 1 30%;
+  }
 }
 //comments----------------------------------------------------------
 
@@ -132,16 +182,35 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  // align-items: center;
   padding: 2.4rem 1.6rem 1.6rem 1.6rem;
+  @include tablet {
+    padding: 4.8rem 3.2rem 3.2rem 3.2rem;
+  }
   &.form-container {
     width: 100%;
+    @include tablet {
+      padding: 0 5.6rem;
+      width: 100%;
+    }
+    @include desktop{
+         width: 50%;
+      margin: 0 auto;
+    }
   }
   &--heading {
     font-size: 2.4rem;
     line-height: 2.2rem;
     font-weight: 600;
     margin-bottom: 1.6rem;
+    @include tablet {
+      font-size: 3.6rem;
+      line-height: 4.4rem;
+      font-weight: 600;
+      margin-bottom: 2.4rem;
+    }
+    @include desktop{
+       padding-left: 10rem;
+    }
   }
   &--form {
     width: 100%;
@@ -154,39 +223,65 @@
       border-radius: 50%;
       background-image: url("../assets/images/Mohan-muruge.jpg");
       background-size: cover;
+      @include tablet {
+        width: 4.8rem;
+        height: 4.8rem;
+      }
     }
 
     form {
       display: flex;
       width: 100%;
+      @include tablet {
+        button {
+          align-self: flex-end;
+          font-weight: 700;
+        }
+      }
 
       label {
         font-weight: 600;
-        color: var(--mercury-color);
+        color: $mercury-color;
         margin-bottom: 0.4rem;
+        @include tablet {
+          font-weight: 600;
+          color: $mercury-color;
+          margin-bottom: 0.4rem;
+        }
       }
       flex-direction: column;
       input {
         height: 3.6rem;
+        @include tablet {
+          height: 4.8rem;
+        }
       }
       textarea {
         height: 10.8rem;
+        @include tablet {
+          height: 13rem;
+        }
       }
       .form-field {
         width: 100%;
         border-radius: 0.4rem;
         padding: 1.2rem;
         outline: none;
-        border: 1px solid var(--mercury-color);
+        border: 1px solid $mercury-color;
         font-family: inherit;
-        background-color: var(--alabaster-color);
+        background-color: $alabaster-color;
         margin-bottom: 1.6rem;
+        @include tablet {
+          width: 100%;
+          border-radius: 0.4rem;
+          padding: 1.6rem;
+        }
         &:active,
         &:focus {
-          border: 1px solid var(--bandsite-black-color);
+          border: 1px solid $bandsite-black-color;
         }
         &::placeholder {
-          color: var(--bandsite-black-color);
+          color: $bandsite-black-color;
         }
       }
     }
@@ -195,20 +290,24 @@
   &--list {
     margin-top: 1.6rem;
     .comment {
-      border-top: 1px solid var(--mercury-color);
+      border-top: 1px solid $mercury-color;
       padding: 1.6rem 0;
       display: flex;
       width: 100%;
       &:last-child {
-        border-bottom: 1px solid var(--mercury-color);
+        border-bottom: 1px solid $mercury-color;
       }
 
       &__profile-pic {
         width: 3.6rem;
         height: 3.6rem;
         margin-right: 1.6rem;
-        background-color: var(--mercury-color);
+        background-color: $mercury-color;
         border-radius: 50%;
+        @include tablet {
+          width: 4.8rem;
+          height: 4.8rem;
+        }
       }
       &__text {
         width: 80%;
@@ -216,6 +315,11 @@
           font-size: 1.3rem;
           line-height: 1.8rem;
           font-weight: 400;
+          @include tablet {
+            font-size: 1.4rem;
+            line-height: 2.2rem;
+            font-weight: 400;
+          }
         }
         &--title {
           display: flex;
@@ -224,347 +328,20 @@
           margin-bottom: 0.8rem;
           h3 {
             font-weight: 600;
-          }
-          p {
-            font-size: 1.3rem;
-            color: var(--mercury-color);
-          }
-        }
-      }
-    }
-  }
-}
-
-//footer----------------------------------------------------------
-.footer {
-  display: flex;
-  flex-direction: column;
-  background-color: var(--bandsite-black-color);
-  color: var(--white-color);
-  padding: 2.4rem 1.6rem;
-  font-size: 1.3rem;
-  line-height: 1.8rem;
-  &__heading {
-    h1 {
-      font-size: 2.4rem;
-      font-weight: 600;
-    }
-    ul {
-      padding: 1.6rem 0;
-      list-style: none;
-      display: flex;
-      li {
-        width: 2.2rem;
-        height: 2.2rem;
-        margin: 0 0.8rem 0 0;
-      }
-    }
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-  &__h1 {
-    padding-top: 2.4rem;
-    font-weight: 400;
-    text-transform: uppercase;
-    padding-bottom: 1.6rem;
-  }
-}
-.contact1,
-.contact2,
-.contact3 {
-  padding-bottom: 2.4rem;
-  line-height: 2.2rem;
-  p {
-    &:nth-child(2) {
-      padding-bottom: 1.6rem;
-    }
-    &:nth-child(4) {
-      padding-bottom: 1.6rem;
-    }
-  }
-}
-
-// media queries------------------------------------------------
-//tablet--------------------------------------------------------
-@include tablet {
-  .header {
-    display: flex;
-    flex-direction: row;
-    &__logo {
-      font-size: 3.6rem;
-      line-height: 4.4rem;
-      font-weight: 400;
-      padding-top: 1.6rem;
-      padding-left: 3.6rem;
-
-      display: flex;
-      justify-content: center;
-      text-transform: uppercase;
-      margin-right: 6rem;
-    }
-  }
-  .nav__links {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    ul {
-      align-items: center;
-
-      li {
-        padding: 2.2rem 0 1.4rem 0;
-        margin-right: 5.4rem;
-      }
-    }
-  }
-  //hero----------------------------------------------------------------------------
-  .hero {
-    &__text {
-      color: var(--white-color);
-      font-size: 6rem;
-      font-weight: 600;
-      position: absolute;
-      z-index: 10;
-      padding-left: 3.2rem;
-    }
-  }
-  //content---------------------------------------------------------------------------
-  .content {
-    display: flex;
-    flex-direction: column;
-    color: var(--bandsite-black-color);
-    width: 100%;
-    .about {
-      padding: 0;
-      &__description {
-        padding-left: 8rem;
-        padding-right: 8rem;
-      }
-      &__heading {
-        font-size: 3.2rem;
-        padding: 2.4rem 0 1.6rem 3.2rem;
-      }
-      &__img {
-        width: 100%;
-      }
-      &__quote,
-      &__quote-author {
-        padding-top: 2.4rem;
-        font-weight: 600;
-        font-size: 2.4rem;
-        line-height: 3.2rem;
-        width: 100%;
-      }
-      &__history--heading {
-        font-size: 2.4rem;
-      }
-      &__p {
-        font-size: 1.8rem;
-        line-height: 2.2rem;
-        font-weight: 400;
-        margin-bottom: 1.6rem;
-        margin-right: 2.4rem;
-        flex: 1;
-      }
-      &__paragraphs {
-        display: flex;
-        flex-wrap: wrap;
-        width: 100%;
-      }
-    }
-  }
-  //gallery-------------------------------------------------------------------------------
-  .gallery {
-    display: flex;
-    flex-direction: column;
-    padding: 0 1.6rem 1.6rem 1.6rem;
-    width: 100%;
-    &__heading {
-      font-size: 3.6rem;
-
-      padding: 2.4rem 0 1.6rem 0;
-    }
-    &__images {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-around;
-    }
-  }
-  .img-container {
-    flex: 0 1 30%;
-  }
-
-  // comments----------------------------------------------------------------------------------
-  .home__comments {
-    padding: 4.8rem 3.2rem 3.2rem 3.2rem;
-    .form__container {
-      padding: 0 5.6rem;
-      width: 100%;
-    }
-    &--heading {
-      font-size: 3.6rem;
-      line-height: 4.4rem;
-      font-weight: 600;
-      margin-bottom: 2.4rem;
-    }
-    &--form {
-      &-dp {
-        width: 4.8rem;
-        height: 4.8rem;
-      }
-
-      form {
-        label {
-          font-weight: 600;
-          color: var(--mercury-color);
-          margin-bottom: 0.4rem;
-        }
-        input {
-          height: 4.8rem;
-        }
-        textarea {
-          height: 13rem;
-        }
-        .form-field {
-          width: 100%;
-          border-radius: 0.4rem;
-          padding: 1.6rem;
-        }
-        button {
-          align-self: flex-end;
-          font-weight: 700;
-        }
-      }
-    }
-    // comment list------------------------------------------------
-    &--list {
-      .comment {
-        &__profile-pic {
-          width: 4.8rem;
-          height: 4.8rem;
-        }
-        &__text {
-          p {
-            font-size: 1.4rem;
-            line-height: 2.2rem;
-            font-weight: 400;
-          }
-          &--title {
-            h3 {
+            @include tablet {
               font-size: 1.4rem;
               font-weight: 600;
             }
-            p {
+          }
+          p {
+            font-size: 1.3rem;
+            color: $mercury-color;
+            @include tablet {
               font-size: 1.4rem;
-              color: var(--mercury-color);
             }
           }
         }
       }
     }
-  }
-  //footer------------------------------------------------------------------------------------
-
-  .footer {
-    padding: 2.4rem 3.6rem;
-    font-size: 1.8rem;
-    line-height: 2.2rem;
-    width: 100%;
-    &__contacts {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-    }
-    &__h1 {
-      display: flex;
-      order: -1;
-      justify-content: flex-end;
-    }
-    &__heading {
-      display: flex;
-      width: 100%;
-      flex-direction: row;
-      justify-content: flex-start;
-      margin-top: -3.5rem;
-      ul {
-        margin-left: 3.6rem;
-        li {
-          width: 3rem;
-          height: 3rem;
-          margin-top: -2.5rem;
-        }
-      }
-      h1 {
-        font-weight: 600;
-
-        font-size: 3.6rem;
-      }
-    }
-    &__h1 {
-      padding-top: 2.4rem;
-      font-weight: 400;
-      padding-bottom: 1.6rem;
-    }
-  }
-  .contact1,
-  .contact2,
-  .contact3 {
-    padding-bottom: 2.4rem;
-    padding-top: 1.6rem;
-    line-height: 2.2rem;
-    p {
-      &:nth-child(2) {
-        padding-bottom: 1.6rem;
-      }
-      &:nth-child(4) {
-        padding-bottom: 1.6rem;
-      }
-    }
-  }
-}
-//desktop--------------------------------------------------
-@include desktop {
-  .nav__links {
-    padding-left: 8rem;
-  }
-  //hero----------------------------------------------------
-  .hero {
-    &__text {
-      padding-left: 12rem;
-    }
-  }
-  //content--------------------------------------------------
-  .content {
-    .about {
-      &__description {
-        padding-left: 16rem;
-        padding-right: 16rem;
-      }
-      &__heading {
-        font-size: 4rem;
-        padding-left: 10rem;
-      }
-    }
-  }
-  //gallery----------------------------------------------------
-  .gallery {
-    padding-right: 12rem;
-    padding-left: 12rem;
-  }
-  // comments---------------------------------------------------
-  .home__comments {
-    &--heading {
-      padding-left: 10rem;
-    }
-    .form__container {
-      width: 50%;
-      margin: 0 auto;
-    }
-  }
-  //footer-------------------------------------------------------
-  .footer {
-    padding-left: 14rem;
-    padding-right: 14rem;
   }
 }
