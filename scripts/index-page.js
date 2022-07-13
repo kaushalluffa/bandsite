@@ -90,31 +90,31 @@ if (window.document.title === "Bandsite - Biography") {
 
 const images = [
   {
-    imgUrl: "../assets/images/Photo-gallery-1.jpg",
+    imgUrl: url("../assets/images/Photo-gallery-1.jpg"),
   },
   {
-    imgUrl: "../assets/images/Photo-gallery-2.jpg",
+    imgUrl: url("../assets/images/Photo-gallery-2.jpg"),
   },
   {
-    imgUrl: "../assets/images/Photo-gallery-3.jpg",
+    imgUrl: url("../assets/images/Photo-gallery-3.jpg"),
   },
   {
-    imgUrl: "../assets/images/Photo-gallery-4.jpg",
+    imgUrl: url("../assets/images/Photo-gallery-4.jpg"),
   },
   {
-    imgUrl: "../assets/images/Photo-gallery-5.jpg",
+    imgUrl: url("../assets/images/Photo-gallery-5.jpg"),
   },
   {
-    imgUrl: "../assets/images/Photo-gallery-6.jpg",
+    imgUrl: url("../assets/images/Photo-gallery-6.jpg"),
   },
   {
-    imgUrl: "../assets/images/Photo-gallery-7.jpg",
+    imgUrl: url("../assets/images/Photo-gallery-7.jpg"),
   },
   {
-    imgUrl: "../assets/images/Photo-gallery-8.jpg",
+    imgUrl: url("../assets/images/Photo-gallery-8.jpg"),
   },
   {
-    imgUrl: "../assets/images/Photo-gallery-9.jpg",
+    imgUrl: url("../assets/images/Photo-gallery-9.jpg"),
   },
 ];
 
