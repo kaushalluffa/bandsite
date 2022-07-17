@@ -21,33 +21,59 @@ const comments = [
 ];
 
 //selecting dom elements
-const commentElement = document.querySelector(".home__comments--list");
+const commentList = document.querySelector(".home__comments--list");
 
 const commentBtn = document.getElementById("index__comment");
 
 //adding event listener to comment button
 commentBtn.addEventListener("click", addComment);
 
-//showing comment on the page function
-function showComments(arr) {
-  let newComment = "";
-  for (let i = 0; i < arr.length; i++) {
-    name = arr[i].name;
-    date = arr[i].date;
-    comment = arr[i].comment;
-    newComment +=
-      "<div class='comment'><div class='comment__profile-pic'></div><div class='comment__text'><div class='comment__text--title'><h3>" +
-      name +
-      "</h3><p>" +
-      date +
-      "</p></div><p>" +
-      comment +
-      "</p></div></div>";
-  }
-  return newComment;
+//showing comment on the page
+
+for (let i = 0; i < comments.length; i++) {
+  //creating the elements for the comment list
+  //parent div for comment
+  const commentElement = document.createElement("div");
+  commentElement.classList.add("comment");
+  //element for the picture
+  const commentPic = document.createElement("span");
+  commentPic.classList.add("comment__profile-pic");
+  // parent div for comment, pic, name and date
+  const commentText = document.createElement("div");
+  commentText.classList.add("comment__text");
+  //parent div for name and date in comment
+  const commentTextTitle = document.createElement("div");
+  commentTextTitle.classList.add("comment__text--title");
+  // h3 for name
+  const commentName = document.createElement("h3");
+  // para element for  comment
+  const paraElement = document.createElement("p");
+  //para element for date in comment
+  const dateEl = document.createElement("p");
+  name = comments[i].name;
+  date = comments[i].date;
+  comment = comments[i].comment;
+  //setting the text for name
+  commentName.innerText = name;
+  //setting text for comment
+  paraElement.innerText = comment;
+  //setting the text for date
+  dateEl.innerText = date;
+  //appending name
+  commentTextTitle.appendChild(commentName);
+  //appending date
+  commentTextTitle.appendChild(dateEl);
+  //appending name and date to parent element
+  commentText.appendChild(commentTextTitle);
+  //appending comment to parent element
+  commentText.appendChild(paraElement);
+  // appending profile pic to whole comment container
+  commentElement.appendChild(commentPic);
+  //appending comment container to whole comment container
+  commentElement.appendChild(commentText);
+  //appending the comment container to comment list
+  commentList.appendChild(commentElement);
 }
-//appending comments on the page from the array
-commentElement.innerHTML = showComments(comments);
 
 //adding a comment function
 function addComment(e) {
@@ -119,17 +145,22 @@ const images = [
 ];
 
 //selecting the element
-const img = document.querySelector(".gallery__images");
+const imgGallery = document.querySelector(".gallery__images");
 
 // show image function
-function showImages(arr) {
-  let newImage = "";
-  for (let i = 0; i < arr.length; i++) {
-    imgUrl = arr[i].imgUrl;
-    newImage += `<div class='img-container'><img src="${imgUrl}" alt='gallery image'/></div>`;
-  }
-  return newImage;
-}
 
-// adding images to DOM
-img.innerHTML = showImages(images);
+for (let i = 0; i < images.length; i++) {
+  //creating parent element for img
+  const imgContainer = document.createElement("div");
+  imgContainer.classList.add("img-container");
+  //creating img element
+  const img = document.createElement("img");
+  //getting img url from array
+
+  //setting the src on img
+  img.setAttribute("src", images[i].imgUrl);
+  //appending the img to parent
+  imgContainer.appendChild(img);
+  //appending parent img container to gallery
+  imgGallery.appendChild(imgContainer);
+}
