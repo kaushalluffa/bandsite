@@ -1,5 +1,5 @@
 //comments array
-const comments = [
+let comments = [
   {
     name: "Connor Walton",
     date: moment("20210217", "YYYYMMDD").fromNow(),
@@ -29,54 +29,59 @@ const commentBtn = document.getElementById("index__comment");
 commentBtn.addEventListener("click", addComment);
 
 //showing comment on the page
-
-for (let i = 0; i < comments.length; i++) {
-  //creating the elements for the comment list
-  //parent div for comment
-  const commentElement = document.createElement("div");
-  commentElement.classList.add("comment");
-  //element for the picture
-  const commentPic = document.createElement("span");
-  commentPic.classList.add("comment__profile-pic");
-  // parent div for comment, pic, name and date
-  const commentText = document.createElement("div");
-  commentText.classList.add("comment__text");
-  //parent div for name and date in comment
-  const commentTextTitle = document.createElement("div");
-  commentTextTitle.classList.add("comment__text--title");
-  // h3 for name
-  const commentName = document.createElement("h3");
-  // para element for  comment
-  const paraElement = document.createElement("p");
-  //para element for date in comment
-  const dateEl = document.createElement("p");
-  name = comments[i].name;
-  date = comments[i].date;
-  comment = comments[i].comment;
-  //setting the text for name
-  commentName.innerText = name;
-  //setting text for comment
-  paraElement.innerText = comment;
-  //setting the text for date
-  dateEl.innerText = date;
-  //appending name
-  commentTextTitle.appendChild(commentName);
-  //appending date
-  commentTextTitle.appendChild(dateEl);
-  //appending name and date to parent element
-  commentText.appendChild(commentTextTitle);
-  //appending comment to parent element
-  commentText.appendChild(paraElement);
-  // appending profile pic to whole comment container
-  commentElement.appendChild(commentPic);
-  //appending comment container to whole comment container
-  commentElement.appendChild(commentText);
-  //appending the comment container to comment list
-  commentList.appendChild(commentElement);
+function showComments(arr) {
+  commentList.innerHTML = ''
+  for (let i = 0; i < arr.length; i++) {
+    
+    //creating the elements for the comment list
+    //parent div for comment
+    const commentElement = document.createElement("div");
+    commentElement.classList.add("comment");
+    //element for the picture
+    const commentPic = document.createElement("span");
+    commentPic.classList.add("comment__profile-pic");
+    // parent div for comment, pic, name and date
+    const commentText = document.createElement("div");
+    commentText.classList.add("comment__text");
+    //parent div for name and date in comment
+    const commentTextTitle = document.createElement("div");
+    commentTextTitle.classList.add("comment__text--title");
+    // h3 for name
+    const commentName = document.createElement("h3");
+    // para element for  comment
+    const paraElement = document.createElement("p");
+    //para element for date in comment
+    const dateEl = document.createElement("p");
+    name = arr[i].name;
+    date = arr[i].date;
+    comment = arr[i].comment;
+    //setting the text for name
+    commentName.innerText = name;
+    //setting text for comment
+    paraElement.innerText = comment;
+    //setting the text for date
+    dateEl.innerText = date;
+    //appending name
+    commentTextTitle.appendChild(commentName);
+    //appending date
+    commentTextTitle.appendChild(dateEl);
+    //appending name and date to parent element
+    commentText.appendChild(commentTextTitle);
+    //appending comment to parent element
+    commentText.appendChild(paraElement);
+    // appending profile pic to whole comment container
+    commentElement.appendChild(commentPic);
+    //appending comment container to whole comment container
+    commentElement.appendChild(commentText);
+    //appending the comment container to comment list
+    commentList.appendChild(commentElement);
+  }
 }
-
+showComments(comments)
 //adding a comment function
+
 function addComment(e) {
+ 
   e.preventDefault();
 
   const inputName = document.getElementById("name");
@@ -94,9 +99,10 @@ function addComment(e) {
     //adding new comment object to the array
     comments.unshift(newComment);
     //re rendering the comments on the page with new array of comments
-    commentElement.innerHTML = showComments(comments);
+    showComments(comments)
     //resetting the input fields
     inputName.value = "";
+    
     inputComment.value = "";
   }
 }
