@@ -1,3 +1,14 @@
+//fetching
+let b = []
+let a = axios.get(
+  "https://project-1-api.herokuapp.com/comments?api_key=66aecd7a-f649-4fea-b60a-fc627b778ed1"
+).then((res) =>{
+  console.log(res.data)
+  return res.data
+ 
+})
+console.log(b)
+
 //comments array
 let comments = [
   {
@@ -30,6 +41,7 @@ commentBtn.addEventListener("click", addComment);
 
 //showing comment on the page
 function showComments(arr) {
+  
   commentList.innerHTML = ''
   for (let i = 0; i < arr.length; i++) {
     
