@@ -1,36 +1,12 @@
 //fetching
-let b = []
-let a = axios.get(
-  "https://project-1-api.herokuapp.com/comments?api_key=66aecd7a-f649-4fea-b60a-fc627b778ed1"
-).then((res) =>{
-  console.log(res.data)
-  return res.data
- 
-})
-console.log(b)
-
-//comments array
-let comments = [
-  {
-    name: "Connor Walton",
-    date: moment("20210217", "YYYYMMDD").fromNow(),
-    comment:
-      "This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic work deserves reverence. Let us appreciate this for what it is and what it contains.",
-  },
-  {
-    name: "Emilie Beach",
-    date: moment("20210901", "YYYYMMDD").fromNow(),
-    comment:
-      "I feel blessed to have seen them in person. What a show! They were just perfection. If there was one day of my life I could relive, this would be it. What an incredible day.",
-  },
-  {
-    name: "Miles Acosta",
-    date: moment("20211221", "YYYYMMDD").fromNow(),
-    comment:
-      "I can't stop listening. Every time I hear one of their songs - the vocals - it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough.",
-  },
-];
-
+axios
+  .get(
+    "https://project-1-api.herokuapp.com/comments?api_key='36a96cd1-9ffa-453b-bae6-80d209e81e41'"
+  )
+  .then((res) => {
+    const newComments = res.data.reverse();
+    showComments(newComments);
+  });
 //selecting dom elements
 const commentList = document.querySelector(".home__comments--list");
 
@@ -41,14 +17,13 @@ commentBtn.addEventListener("click", addComment);
 
 //showing comment on the page
 function showComments(arr) {
-  
-  commentList.innerHTML = ''
+  commentList.innerHTML = "";
   for (let i = 0; i < arr.length; i++) {
-    
     //creating the elements for the comment list
     //parent div for comment
     const commentElement = document.createElement("div");
     commentElement.classList.add("comment");
+    commentElement.setAttribute("id", arr[i].id);
     //element for the picture
     const commentPic = document.createElement("span");
     commentPic.classList.add("comment__profile-pic");
@@ -64,8 +39,10 @@ function showComments(arr) {
     const paraElement = document.createElement("p");
     //para element for date in comment
     const dateEl = document.createElement("p");
+    
     name = arr[i].name;
-    date = arr[i].date;
+    timestamp = arr[i].timestamp;
+    date = moment(timestamp).format("DD MMM YYYY");
     comment = arr[i].comment;
     //setting the text for name
     commentName.innerText = name;
@@ -85,15 +62,16 @@ function showComments(arr) {
     commentElement.appendChild(commentPic);
     //appending comment container to whole comment container
     commentElement.appendChild(commentText);
+    
     //appending the comment container to comment list
     commentList.appendChild(commentElement);
+    
+    
   }
 }
-showComments(comments)
 //adding a comment function
 
 function addComment(e) {
- 
   e.preventDefault();
 
   const inputName = document.getElementById("name");
@@ -105,16 +83,28 @@ function addComment(e) {
   } else {
     const newComment = {
       name: inputName.value,
-      date: newDate,
       comment: inputComment.value,
     };
-    //adding new comment object to the array
-    comments.unshift(newComment);
-    //re rendering the comments on the page with new array of comments
-    showComments(comments)
+    axios
+      .post(
+        "https://project-1-api.herokuapp.com/comments?api_key='36a96cd1-9ffa-453b-bae6-80d209e81e41'",
+        newComment,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      )
+      .then((res) => {
+        axios
+          .get("https://project-1-api.herokuapp.com/comments?api_key='36a96cd1-9ffa-453b-bae6-80d209e81e41'")
+          .then((res) => {
+            const newComments = res.data.reverse();
+            showComments(newComments);
+          });
+      });
     //resetting the input fields
     inputName.value = "";
-    
     inputComment.value = "";
   }
 }

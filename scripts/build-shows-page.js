@@ -12,46 +12,25 @@ const showsMob = document.querySelector(".shows__list");
 const showsTabDesk = document.querySelector(".table__info");
 
 //shows array
+axios
+  .get(
+    "https://project-1-api.herokuapp.com/showdates?api_key='36a96cd1-9ffa-453b-bae6-80d209e81e41'"
+  )
+  .then((res) => {
+    displayShows(res.data);
+    showListTab(res.data);
+  });
 
-const shows = [
-  {
-    date: "Mon Sept 06 2022",
-    venue: "Ronald Lane",
-    showLocation: "San Francisco, CA",
-  },
-  {
-    date: "Tue Sept 21 2022",
-    venue: "Pier 3 East",
-    showLocation: "San Francisco, CA",
-  },
-  {
-    date: "Fri Oct 15 2022",
-    venue: "View Lounge",
-    showLocation: "San Francisco, CA",
-  },
-  {
-    date: "Sat Nov 06 2022",
-    venue: "Hyatt Agency",
-    showLocation: "San Francisco, CA",
-  },
-  {
-    date: "Fri Nov 26 2022",
-    venue: "Moscow Center",
-    showLocation: "San Francisco, CA",
-  },
-  {
-    date: "Wed Dec 15 2022",
-    venue: "Press Club",
-    showLocation: "San Francisco, CA",
-  },
-];
 
 //showing shows on the mobile view function
+function displayShows(shows){
+
 
 for (let i = 0; i < shows.length; i++) {
   //whole show container
   const showContainer = document.createElement("div");
   showContainer.classList.add("shows__show");
+  showContainer.setAttribute('id', shows[i].id)
   //container for date label and date
   const dateContainer = document.createElement("div");
   dateContainer.classList.add("date");
@@ -85,9 +64,10 @@ for (let i = 0; i < shows.length; i++) {
   venueLabel.innerText = "VENUE";
   locationLabel.innerText = "LOCATION";
   //setting text for date venue location
-  dateText.innerText = shows[i].date;
-  venueText.innerText = shows[i].venue;
-  locationText.innerText = shows[i].showLocation;
+  timestamp = shows[i].date / 1000  // (divided by thousand to convert it to seconds)
+  dateText.innerText = moment.unix(timestamp).format("MMM DD YYYY")
+  venueText.innerText = shows[i].place;
+  locationText.innerText = shows[i].location;
   //appending date label, and show date
   dateContainer.appendChild(dateLabel);
   dateContainer.appendChild(dateText);
@@ -107,11 +87,11 @@ for (let i = 0; i < shows.length; i++) {
   showsMob.appendChild(showContainer);
 
 }
-
+}
 
 // showing shows on tablet and desktop views function
 
-// function showListTab(arr) {
+function showListTab(shows) {
 //   let newShowTab = "";
    for (let i = 0; i < shows.length; i++) {
      //tr element for the table
@@ -129,9 +109,14 @@ for (let i = 0; i < shows.length; i++) {
      button.innerText = "BUY TICKETS"
      button.appendChild(a)
      //setting innertext for td elements
-     tdDate.innerText = shows[i].date;
-     tdVenue.innerText = shows[i].venue;
-     tdLocation.innerText = shows[i].showLocation;
+     timestamp = shows[i].date / 1000; // (divided by thousand to convert it to seconds)
+     tdDate.innerText = moment.unix(timestamp).format("MMM DD YYYY");
+     tdVenue.innerText = shows[i].place;
+     tdLocation.innerText = shows[i].location;
+
+    //  tdDate.innerText = shows[i].date;
+    //  tdVenue.innerText = shows[i].venue;
+    //  tdLocation.innerText = shows[i].showLocation;
      //appending td elements to tr element
      tableRow.appendChild(tdDate)
      tableRow.appendChild(tdVenue)
@@ -141,4 +126,5 @@ for (let i = 0; i < shows.length; i++) {
      showsTabDesk.appendChild(tableRow)
 
    }
+  }
 
