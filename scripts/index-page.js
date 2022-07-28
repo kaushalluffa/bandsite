@@ -7,6 +7,7 @@ axios
     const newComments = res.data.reverse();
     showComments(newComments);
   });
+  
 //selecting dom elements
 const commentList = document.querySelector(".home__comments--list");
 
@@ -14,6 +15,13 @@ const commentBtn = document.getElementById("index__comment");
 
 //adding event listener to comment button
 commentBtn.addEventListener("click", addComment);
+
+//function takes el name and child array to append multiple child
+function showElements(element, arr) {
+  for (let i = 0; i < arr.length; i++) {
+    element.appendChild(arr[i]);
+  }
+}
 
 //showing comment on the page
 function showComments(arr) {
@@ -37,9 +45,10 @@ function showComments(arr) {
     const commentName = document.createElement("h3");
     // para element for  comment
     const paraElement = document.createElement("p");
+
     //para element for date in comment
     const dateEl = document.createElement("p");
-    
+
     name = arr[i].name;
     timestamp = arr[i].timestamp;
     date = moment(timestamp).format("DD MMM YYYY");
@@ -51,24 +60,19 @@ function showComments(arr) {
     //setting the text for date
     dateEl.innerText = date;
     //appending name
-    commentTextTitle.appendChild(commentName);
-    //appending date
-    commentTextTitle.appendChild(dateEl);
+    // //appending date
+    showElements(commentTextTitle, [commentName, dateEl]);
     //appending name and date to parent element
-    commentText.appendChild(commentTextTitle);
-    //appending comment to parent element
-    commentText.appendChild(paraElement);
+    // //appending comment to parent element
+    showElements(commentText, [commentTextTitle, paraElement]);
     // appending profile pic to whole comment container
-    commentElement.appendChild(commentPic);
-    //appending comment container to whole comment container
-    commentElement.appendChild(commentText);
-    
+    // //appending comment container to whole comment container
+    showElements(commentElement, [commentPic, commentText]);
     //appending the comment container to comment list
     commentList.appendChild(commentElement);
-    
-    
   }
 }
+
 //adding a comment function
 
 function addComment(e) {
@@ -97,7 +101,9 @@ function addComment(e) {
       )
       .then((res) => {
         axios
-          .get("https://project-1-api.herokuapp.com/comments?api_key='36a96cd1-9ffa-453b-bae6-80d209e81e41'")
+          .get(
+            "https://project-1-api.herokuapp.com/comments?api_key='36a96cd1-9ffa-453b-bae6-80d209e81e41'"
+          )
           .then((res) => {
             const newComments = res.data.reverse();
             showComments(newComments);
