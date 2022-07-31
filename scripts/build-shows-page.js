@@ -12,20 +12,24 @@ const showsMob = document.querySelector(".shows__list");
 const showsTabDesk = document.querySelector(".table__info");
 
 //shows array
-axios
-  .get(
-    "https://project-1-api.herokuapp.com/showdates?api_key='36a96cd1-9ffa-453b-bae6-80d209e81e41'"
-  )
-  .then((res) => {
+const apiKey = "369c4392-b8bb-40cb-bed7-dd727b66245a";
+const apiUrl = `https://project-1-api.herokuapp.com/showdates?api_key=${apiKey}`;
+function getShows(url) {
+  axios.get(apiUrl).then((res) => {
     displayShows(res.data);
     showListTab(res.data);
   });
+}
+getShows(apiUrl);
+
 //function takes el name and child array to append multiple child
 function showElements(element, arr) {
   for (let i = 0; i < arr.length; i++) {
     element.appendChild(arr[i]);
   }
 }
+//showElements(showContainer, [dateContainer,dateLabel,dateText])
+
 // function takes var name array and val name array to set the innertext of var
 function setValue(varArr, valArr) {
   for (let i = 0; i < varArr.length; i++) {
@@ -135,3 +139,4 @@ function showListTab(shows) {
     showsTabDesk.appendChild(tableRow);
   }
 }
+

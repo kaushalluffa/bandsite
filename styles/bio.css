@@ -590,11 +590,10 @@ p {
 }
 .home__comments--list .comment {
   border-top: 1px solid #e1e1e1;
-  padding: 1.6rem 0;
+  position: relative;
+  padding: 2rem 0 8rem 0;
   display: flex;
   width: 100%;
-}
-.home__comments--list .comment:last-child {
   border-bottom: 1px solid #e1e1e1;
 }
 .home__comments--list .comment__profile-pic {
@@ -648,4 +647,20 @@ p {
   .home__comments--list .comment__text--title p {
     font-size: 1.4rem;
   }
+}
+
+.delBtn {
+  position: absolute;
+  bottom: 0.4rem;
+  right: 0;
+  height: 3rem;
+  padding: 1rem;
+}
+
+.likeBtn {
+  position: absolute;
+  bottom: 4rem;
+  right: 0;
+  height: 3rem;
+  padding: 1rem;
 }

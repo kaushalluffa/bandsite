@@ -1,13 +1,15 @@
 //fetching
-axios
-  .get(
-    "https://project-1-api.herokuapp.com/comments?api_key='36a96cd1-9ffa-453b-bae6-80d209e81e41'"
-  )
-  .then((res) => {
+const apiKey = "369c4392-b8bb-40cb-bed7-dd727b66245a";
+const apiUrl = `https://project-1-api.herokuapp.com/comments?api_key=${apiKey}`;
+let comments = [];
+function getComments(c) {
+  axios.get(apiUrl).then((res) => {
     const newComments = res.data.reverse();
-    showComments(newComments);
+    comments = newComments;
+    showComments(comments);
   });
-  
+}
+getComments(comments);
 //selecting dom elements
 const commentList = document.querySelector(".home__comments--list");
 
@@ -48,10 +50,19 @@ function showComments(arr) {
 
     //para element for date in comment
     const dateEl = document.createElement("p");
+    //delete button
+    const delBtn = document.createElement("button");
+    delBtn.classList.add("delBtn");
+    delBtn.setAttribute("id", arr[i].id);
+    delBtn.innerText = "Delete";
+    const likeBtn = document.createElement("button");
+    likeBtn.classList.add("likeBtn");
+    likeBtn.setAttribute("id", arr[i].id);
+    likeBtn.innerText = `Like ${arr[i].likes}`;
 
     name = arr[i].name;
     timestamp = arr[i].timestamp;
-    date = moment(timestamp).format("DD MMM YYYY");
+    date = moment(timestamp).fromNow();
     comment = arr[i].comment;
     //setting the text for name
     commentName.innerText = name;
@@ -67,11 +78,13 @@ function showComments(arr) {
     showElements(commentText, [commentTextTitle, paraElement]);
     // appending profile pic to whole comment container
     // //appending comment container to whole comment container
-    showElements(commentElement, [commentPic, commentText]);
+    showElements(commentElement, [commentPic, commentText, delBtn, likeBtn]);
+
     //appending the comment container to comment list
     commentList.appendChild(commentElement);
   }
 }
+//delete function
 
 //adding a comment function
 
@@ -90,31 +103,52 @@ function addComment(e) {
       comment: inputComment.value,
     };
     axios
-      .post(
-        "https://project-1-api.herokuapp.com/comments?api_key='36a96cd1-9ffa-453b-bae6-80d209e81e41'",
-        newComment,
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      )
+      .post(apiUrl, newComment, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
       .then((res) => {
-        axios
-          .get(
-            "https://project-1-api.herokuapp.com/comments?api_key='36a96cd1-9ffa-453b-bae6-80d209e81e41'"
-          )
-          .then((res) => {
-            const newComments = res.data.reverse();
-            showComments(newComments);
-          });
+        axios.get(apiUrl).then((res) => {
+          const newComments = res.data.reverse();
+          showComments(newComments);
+        });
       });
     //resetting the input fields
     inputName.value = "";
     inputComment.value = "";
   }
 }
+//deleting comments
+document.body.addEventListener("click", (e) => {
+  if (e.target && e.target.className === "delBtn") {
+    const id = e.target.id;
+    axios
+      .delete(
+        `https://project-1-api.herokuapp.com/comments/${id}?api_key=${apiKey}`
+      )
+      .then((res) => {
+        const deletedComments = comments.filter(() => {
+          return res.data.id;
+        });
 
+        getComments(deletedComments);
+      });
+  }
+});
+//like comments
+document.body.addEventListener("click", (e) => {
+  if (e.target && e.target.className === "likeBtn") {
+    const id = e.target.id;
+    axios
+      .put(
+        `https://project-1-api.herokuapp.com/comments/${id}/like?api_key=${apiKey}`
+      )
+      .then((res) => {
+        getComments(comments);
+      });
+  }
+});
 // bottom border styling for navigation
 
 const navLinks = document.getElementById("navLinks");
