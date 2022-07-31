@@ -192,8 +192,8 @@
       padding: 0 5.6rem;
       width: 100%;
     }
-    @include desktop{
-         width: 50%;
+    @include desktop {
+      width: 50%;
       margin: 0 auto;
     }
   }
@@ -208,8 +208,8 @@
       font-weight: 600;
       margin-bottom: 2.4rem;
     }
-    @include desktop{
-       padding-left: 10rem;
+    @include desktop {
+      padding-left: 10rem;
     }
   }
   &--form {
@@ -286,17 +286,17 @@
       }
     }
   }
+
   // comment list------------------------------------------------
   &--list {
     margin-top: 1.6rem;
     .comment {
       border-top: 1px solid $mercury-color;
-      padding: 1.6rem 0;
+      position: relative;
+      padding: 2rem 0 8rem 0;
       display: flex;
       width: 100%;
-      &:last-child {
-        border-bottom: 1px solid $mercury-color;
-      }
+      border-bottom: 1px solid $mercury-color;
 
       &__profile-pic {
         width: 3.6rem;
@@ -344,4 +344,18 @@
       }
     }
   }
+}
+.delBtn {
+  position: absolute;
+  bottom: .4rem;
+  right: 0;
+  height: 3rem;
+  padding: 1rem;
+}
+.likeBtn {
+  position: absolute;
+  bottom: 4rem;
+  right: 0;
+  height: 3rem;
+  padding: 1rem;
 }
